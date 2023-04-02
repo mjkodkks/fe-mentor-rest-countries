@@ -29,7 +29,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://github.com/mjkodkks/fe-mentor-expenses-chart](https://github.com/mjkodkks/fe-mentor-expenses-chart)
-- Live Site URL: [Waiting Deploy](https://your-live-site-url.com)
+- Live Site URL: [https://mjkodkks.github.io/fe-mentor-rest-countries/](https://mjkodkks.github.io/fe-mentor-rest-countries/)
 
 ## My process
 - Done
