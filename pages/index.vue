@@ -5,25 +5,39 @@ const router = useRouter()
 
 const searchText = ref('')
 const countryList = ref<ICountry[]>([])
-const filterCountryList = ref<IListFilter[]>([])
+const filterCountryList = ref<IListFilter[]>([
+  {
+    text: 'Africa',
+    slug: 'africa',
+  },
+  {
+    text: 'America',
+    slug: 'America',
+  },
+  {
+    text: 'Asia',
+    slug: 'asia',
+  },
+  {
+    text: 'Europe',
+    slug: 'europe',
+  },
+  {
+    text: 'Oceania',
+    slug: 'oceania',
+  },
+])
 const filterCountrySelect = ref<string>('')
 const countryListComputed = computed(() => {
   return countryList.value.filter(f =>
-    f.name.toLowerCase().includes(searchText.value.toLowerCase()) && f.alpha3Code.toLowerCase().includes(filterCountrySelect.value.toLowerCase()))
+    f.name.toLowerCase().includes(searchText.value.toLowerCase()) && f.region.toLowerCase().includes(filterCountrySelect.value.toLowerCase()))
 })
 
 const { data } = await useFetch<ICountry[]>('/data.json')
 
 async function fetchData() {
-  if (data.value) {
+  if (data.value)
     countryList.value = [...data.value]
-    filterCountryList.value = [...data.value.map((m) => {
-      return {
-        text: m.name,
-        slug: m.alpha3Code,
-      }
-    })]
-  }
 }
 
 function countryInfoClick(code: string) {
